@@ -1,4 +1,4 @@
-package _1.LifeCycle;
+package ex1._1.LifeCycle;
 
 import java.io.IOException;
 import jakarta.servlet.ServletException;
@@ -22,12 +22,10 @@ public class LifeCycle extends HttpServlet {
 	}
 	
 	public void destroy() {
-		System.out.println("저는 destroy()3 입니다.");
+		System.out.println("저는 destroy() 입니다.");
 	}
 	
-	
-	
-	
+
 	public void service(HttpServletRequest request, HttpServletResponse response) 
 			throws ServletException, IOException {
 		System.out.println("저는 service() 입니다. ");
