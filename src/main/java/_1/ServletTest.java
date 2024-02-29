@@ -1,5 +1,6 @@
 package _1;
-import java.io.IOException;
+import java.io.*;
+import java.util.Calendar;
 
 import jakarta.servlet.http.*;
 
@@ -22,6 +23,30 @@ public class ServletTest extends jakarta.servlet.http.HttpServlet {
 		response.setContentType("text/html");
 		
 		// 응답타입의 문자 인코딩 타입을 한글이 제대로 출력되도록 "utf-8"로 지정합니다.
+		response.setCharacterEncoding("utf-8");
 		
+		// 위 두 문장을 한 번에 작성하면 다음과 같습니다.
+		// response.setContentType("text/html;charset=utf-8");
+		
+		// Calendar 객체를 생성하여 객체로부터 시간, 분, 초 값을 얻어옵니다.
+		Calendar c = Calendar.getInstance();
+		int hour = c.get(Calendar.HOUR_OF_DAY);
+		int minute = c.get(Calendar.MINUTE);
+		int second = c.get(Calendar.SECOND);
+		
+		// 응답에 내용을 출력할 출력 스트림을 생성합니다.
+		PrintWriter out = response.getWriter();
+		
+		// 클라이언트로 응답할 내용을 HTML 타입의 데이터로 출력하는 부분입니다.
+		out.write("<HTML><HEAD><TITLE>ServletTest</TITLE></HEAD>");
+		out.write("<BODY style='background:yellow'><H1>");
+		out.write("현재 시각은 ");
+		out.write(Integer.toString(hour));
+		out.write("시 ");
+		out.write(Integer.toString(minute));
+		out.write("분 ");
+		out.write(Integer.toString(second));
+		out.write("초 </H1></BODY></HTML>");
+		out.close();
 	}
 }
