@@ -25,6 +25,9 @@ public class LifeCycle extends HttpServlet {
 		System.out.println("저는 destroy()3 입니다.");
 	}
 	
+	
+	
+	
 	public void service(HttpServletRequest request, HttpServletResponse response) 
 			throws ServletException, IOException {
 		System.out.println("저는 service() 입니다. ");
