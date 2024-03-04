@@ -1,4 +1,4 @@
-package ex1._1;
+package _1;
 import java.io.*;
 import java.util.Calendar;
 
