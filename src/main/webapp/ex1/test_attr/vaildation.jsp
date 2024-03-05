@@ -16,7 +16,7 @@
 </head>
 <body>
 	<div class="container">
-		<form method="post" action="send.html" name="myform" id="myform">
+		<form method="post" action="send" name="myform" id="myform">
 			<fieldset>
 				<legend>유효성 검사</legend>
 				<div>

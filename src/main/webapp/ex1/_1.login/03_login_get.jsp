@@ -5,7 +5,7 @@
 <head>
 <meta charset="EUC-KR">
 <title>테스트</title>
-<link href="./../CSS/ch03-1.css" rel="stylesheet" type="text/css">
+<link href="../../css/ch03-1.css" rel="stylesheet" type="text/css">
 </head>
 <body>
 	<form action="LifeCycleTest" method="get">

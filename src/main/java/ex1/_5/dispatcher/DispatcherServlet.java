@@ -31,13 +31,11 @@ public class DispatcherServlet extends HttpServlet {
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		System.out.println("요청방식 : " + req.getMethod());
-		System.out.println("파라미터 fodd의 값 : " + req.getParameter("food"));
+		System.out.println("파라미터 food의 값 : " + req.getParameter("food"));
 		
 		// dispatcher.jsp : 이동할 페이지 주소
 		// http://localhost:8088/JSP/dispatcher.jsp 의미
 		// RequestDispatcher dispatcher = request.getRequestDispatcher("/dispatcher.jsp");
-		
-		// http://localhost:8088/JSP/ex1/_5.dispatcher/dispatcher.jsp
 		RequestDispatcher dispatcher = req.getRequestDispatcher("dispatcher.jsp");
 		
 		dispatcher.forward(req, resp);
