@@ -31,18 +31,24 @@ http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd">
 		<param-value>5</param-value>
 	</context-param>
 
+	<!-- _10.layout -->
+	<context-param>
+		<description>아이디</description>
+		<param-name>id</param-name>
+		<param-value>jsp</param-value>
+	</context-param>
+
+	<context-param>
+		<description>비밀번호</description>
+		<param-name>password</param-name>
+		<param-value>jsp</param-value>
+	</context-param>
+
 	<!-- error, exception -->
-	<error-page>
-		<error-code>404</error-code>
-		<location>/ex3_implicit_object/6.exception/error/error404.jsp</location>
-	</error-page>
-	<error-page>
-		<error-code>500</error-code>
-		<location>/ex3_implicit_object/6.exception/error/error500.jsp</location>
-	</error-page>
-	<error-page>
-		<exception-type>java.lang.NullPointerException</exception-type>
-		<location>/ex3_implicit_object/6.exception/ex1/readParameter.jsp</location>
-	</error-page>
+	<!-- <error-page> <error-code>404</error-code> <location>/ex3_implicit_object/_6.exception/error/error404.jsp</location> 
+		</error-page> <error-page> <error-code>500</error-code> <location>/ex3_implicit_object/_6.exception/error/error500.jsp</location> 
+		</error-page> <error-page> <exception-type>java.lang.NullPointerException</exception-type> 
+		<location>/ex3_implicit_object/_6.exception/ex1/readParameter.jsp</location> 
+		</error-page> -->
 
 </web-app>
