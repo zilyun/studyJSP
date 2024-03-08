@@ -17,6 +17,9 @@ import ex8.Emp;
  * DAO(Data Access Object) 클래스
  * - 데이터 베이스와 연동하여 레코드의 추가, 수정, 삭제 작업이 이루어지는 클래스 입니다.
  * */
+/*
+ * pstmt는 값에 대한 영역만 바인딩한다.
+ * */
 public class DAO {
 
 	public ArrayList<Emp> selectForm(int field, String search) {
@@ -27,15 +30,15 @@ public class DAO {
 
 		String select_sql = "";
 		switch (field) {
-		case 0 -> select_sql = "select * from emp where empno like ?";
-		case 1 -> select_sql = "select * from emp where ename like ?";
-		case 2 -> select_sql = "select * from emp where job like ?";
-		case 3 -> select_sql = "select * from emp where mgr like ?";
-		case 4 -> select_sql = "select * from emp where hiredate like ?";
-		case 5 -> select_sql = "select * from emp where sal like ?";
-		case 6 -> select_sql = "select * from emp where comm like ?";
-		case 7 -> select_sql = "select * from emp where deptno like ?";
-		default -> select_sql = "select * from emp";
+			case 0 -> select_sql = "select * from emp where empno like ?";
+			case 1 -> select_sql = "select * from emp where ename like ?";
+			case 2 -> select_sql = "select * from emp where job like ?";
+			case 3 -> select_sql = "select * from emp where mgr like ?";
+			case 4 -> select_sql = "select * from emp where hiredate like ?";
+			case 5 -> select_sql = "select * from emp where sal like ?";
+			case 6 -> select_sql = "select * from emp where comm like ?";
+			case 7 -> select_sql = "select * from emp where deptno like ?";
+			default -> select_sql = "select * from emp";
 		}
 
 		try {
