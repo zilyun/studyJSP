@@ -46,6 +46,7 @@ public class DAO {
 			DataSource ds = (DataSource) init.lookup("java:comp/env/jdbc/OracleDB");
 			conn = ds.getConnection();
 
+			// select * from emp where 'deptno' like '?' <- 바인딩할 경우
 			pstmt = conn.prepareStatement(select_sql);
 			pstmt.setString(1, search);
 			rs = pstmt.executeQuery();
