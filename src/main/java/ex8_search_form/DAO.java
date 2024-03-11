@@ -22,33 +22,36 @@ import ex8.Emp;
  * */
 public class DAO {
 
-	public ArrayList<Emp> selectForm(int field, String search) {
+	public ArrayList<Emp> selectForm(int field, String search_word) {
 		Connection conn = null;
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
 		ArrayList<Emp> list = new ArrayList<Emp>();
 
-		String select_sql = "";
-		switch (field) {
-			case 0 -> select_sql = "select * from emp where empno like ?";
-			case 1 -> select_sql = "select * from emp where ename like ?";
-			case 2 -> select_sql = "select * from emp where job like ?";
-			case 3 -> select_sql = "select * from emp where mgr like ?";
-			case 4 -> select_sql = "select * from emp where hiredate like ?";
-			case 5 -> select_sql = "select * from emp where sal like ?";
-			case 6 -> select_sql = "select * from emp where comm like ?";
-			case 7 -> select_sql = "select * from emp where deptno like ?";
-			default -> select_sql = "select * from emp";
-		}
+//		String select_sql = "";
+//		switch (field) {
+//			case 0 -> select_sql = "select * from emp where empno like ?";
+//			case 1 -> select_sql = "select * from emp where ename like ?";
+//			case 2 -> select_sql = "select * from emp where job like ?";
+//			case 3 -> select_sql = "select * from emp where mgr like ?";
+//			case 4 -> select_sql = "select * from emp where hiredate like ?";
+//			case 5 -> select_sql = "select * from emp where sal like ?";
+//			case 6 -> select_sql = "select * from emp where comm like ?";
+//			case 7 -> select_sql = "select * from emp where deptno like ?";
+//			default -> select_sql = "select * from emp";
+//		}
 
 		try {
 			Context init = new InitialContext();
 			DataSource ds = (DataSource) init.lookup("java:comp/env/jdbc/OracleDB");
 			conn = ds.getConnection();
 
+			String field_name[] = { "empno", "ename", "job", "mgr", "to_char(hiredate, 'yyyy-mm-dd')", "sal", "comm", "deptno" };
+			String select_sql = "select * from emp where " + field_name[field] + " like ? ";
+			
 			// select * from emp where 'deptno' like '?' <- 바인딩할 경우
 			pstmt = conn.prepareStatement(select_sql);
-			pstmt.setString(1, search);
+			pstmt.setString(1, "%" + search_word + "%");
 			rs = pstmt.executeQuery();
 
 			while (rs.next()) { // 더 이상 읽을 데이터가 없을 때까지 반복
@@ -100,9 +103,6 @@ public class DAO {
 					System.out.println(e.getMessage());
 				}
 		} // finally
-
 		return list;
-		// return null;
-
-	} // selectAll() end
+	} // selectForm() end
 } // class end
